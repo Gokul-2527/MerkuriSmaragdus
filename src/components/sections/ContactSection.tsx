@@ -19,6 +19,10 @@ const projectTypes = [
   "Other",
 ];
 
+interface ContactSectionProps {
+  showHeading?: boolean;
+}
+
 function Field({
   label,
   ...props
@@ -36,18 +40,26 @@ function Field({
   );
 }
 
-export function ContactSection() {
+export function ContactSection({ showHeading = true }: ContactSectionProps) {
   const [submitted, setSubmitted] = useState(false);
 
   return (
     <section id="contact" className="mx-auto max-w-content px-6 py-28 sm:px-10">
-      <SectionHeading
-        eyebrow="Contact"
-        title="Start a Conversation"
-        description="Tell us about your project and our specialized team will get back to you shortly."
-      />
+      {showHeading && (
+        <SectionHeading
+          eyebrow="Contact"
+          title="Start a Conversation"
+          description="Tell us about your project and our specialized team will get back to you shortly."
+        />
+      )}
 
-      <div className="mt-14 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
+      <div
+        className={
+          showHeading
+            ? "mt-14 grid gap-10 lg:grid-cols-[1.4fr_1fr]"
+            : "grid gap-10 lg:grid-cols-[1.4fr_1fr]"
+        }
+      >
         <GlassCard className="p-6 sm:p-10">
           {submitted ? (
             <motion.div
