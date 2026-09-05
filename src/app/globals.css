@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/* Design tokens as CSS variables — mirrors src/config/theme.ts.       */
+/* This is the single source of truth Tailwind + custom CSS both read. */
+/* ------------------------------------------------------------------ */
+:root {
+  --primary: #00674f;
+  --primary-deep: #004d3b;
+  --secondary: #9c7c24;
+  --dark: #071c17;
+  --dark-green: #0b2922;
+  --background: #f7f8f5;
+  --foreground: #16231f;
+  --muted: #68736f;
+  --border: rgba(0, 103, 79, 0.15);
+  --emerald-light: #4fbfa0; /* readable emerald tint for headings on dark backgrounds */
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+
+/* Custom cursor (desktop only, applied via JS toggling body class) */
+.cursor-enabled,
+.cursor-enabled * {
+  cursor: none;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.gold-rule {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+  transform-origin: left;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
