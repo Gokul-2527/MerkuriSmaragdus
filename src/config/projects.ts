@@ -71,14 +71,6 @@ export const projects: Project[] = [
     image:
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1600&auto=format&fit=crop",
   },
-  {
-    category: "Technology",
-    title: "Brand Identity & Graphic Design",
-    location: "Remote Delivery",
-    year: "2025",
-    image:
-      "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1600&auto=format&fit=crop",
-  },
 ];
 
 export const processSteps = [

@@ -26,7 +26,10 @@ export function Footer() {
             <ul className="mt-4 space-y-2 text-sm">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="transition-colors hover:text-white">
+                  <Link
+                    href={link.href}
+                    className="transition-colors hover:text-white"
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -48,13 +51,14 @@ export function Footer() {
             <ul className="mt-4 space-y-2 text-sm">
               <li>Coimbatore, Tamil Nadu, India</li>
               <li>info@merkurismaragdus.com</li>
-              <li>+91 00000 00000</li>
+              <li>+91 91597 55719</li>
             </ul>
           </div>
         </div>
 
         <div className="mt-14 border-t border-white/10 pt-6 text-xs text-white/40">
-          © 2026 Merkuri Smaragdus Construction &amp; Contracts LLP. All Rights Reserved.
+          © 2026 Merkuri Smaragdus Construction &amp; Contracts LLP. All Rights
+          Reserved.
         </div>
       </div>
     </footer>

@@ -4,13 +4,13 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { StaggerGroup, StaggerItem } from "@/components/ui/StaggerGroup";
 import { whyUs } from "@/config/projects";
 
-export function WhyUs() {
+export function WhyUs({ showHeading = true }: { showHeading?: boolean }) {
   return (
     <section className="mx-auto max-w-content px-6 py-28 sm:px-10">
-      <SectionHeading eyebrow="Why Partner With Us" title="Why Partner With Us?" />
+      {showHeading && <SectionHeading eyebrow="Why Partner With Us" title="Why Partner With Us?" />}
 
       <StaggerGroup
-        className="mt-14 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
+        className={showHeading ? "mt-14 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3" : "grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"}
         staggerChildren={0.08}
       >
         {whyUs.map((f) => (

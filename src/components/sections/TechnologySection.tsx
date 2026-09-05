@@ -15,7 +15,7 @@ const capabilities = [
   { icon: Building2, label: "Enterprise Software" },
 ];
 
-export function TechnologySection() {
+export function TechnologySection({ showHeading = true }: { showHeading?: boolean }) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-dark-green to-dark py-28 text-white">
       {/* Subtle grid + glow */}
@@ -34,12 +34,14 @@ export function TechnologySection() {
       />
 
       <div className="relative mx-auto max-w-content px-6 sm:px-10">
-        <SectionHeading
-          eyebrow="Technology"
-          title="Engineering the Digital Future"
-          description="We build digital products that help businesses operate, connect and scale."
-          light
-        />
+        {showHeading && (
+          <SectionHeading
+            eyebrow="Technology"
+            title="Engineering the Digital Future"
+            description="We build digital products that help businesses operate, connect and scale."
+            light
+          />
+        )}
 
         <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {capabilities.map((cap, i) => (

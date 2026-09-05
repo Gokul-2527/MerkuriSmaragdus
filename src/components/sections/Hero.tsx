@@ -19,7 +19,10 @@ const item = {
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
 
   const imageScale = useTransform(scrollYProgress, [0, 1], [1.08, 1.28]);
   const contentY = useTransform(scrollYProgress, [0, 1], [0, -120]);
@@ -27,7 +30,10 @@ export function Hero() {
   const gridY = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   return (
-    <section ref={ref} className="relative h-[110vh] w-full overflow-hidden bg-dark">
+    <section
+      ref={ref}
+      className="relative h-[110vh] w-full overflow-hidden bg-dark"
+    >
       {/* Background image — slow zoom on load, continues scaling on scroll */}
       <motion.div
         className="absolute inset-0"
@@ -63,8 +69,12 @@ export function Hero() {
         {[120, 340, 620, 980, 1260].map((x, i) => (
           <motion.line
             key={x}
-            x1={x} y1="0" x2={x} y2="900"
-            stroke="#F7F8F5" strokeWidth="1"
+            x1={x}
+            y1="0"
+            x2={x}
+            y2="900"
+            stroke="#F7F8F5"
+            strokeWidth="1"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
             transition={{ duration: 1.4, delay: 0.4 + i * 0.1, ease: EASE }}
@@ -76,33 +86,50 @@ export function Hero() {
         style={{ y: contentY, opacity: contentOpacity }}
         className="relative z-10 mx-auto flex h-full max-w-content flex-col justify-center px-6 sm:px-10"
       >
-        <motion.div variants={container} initial="hidden" animate="visible" className="max-w-3xl">
-          <motion.span variants={item} className="eyebrow">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="visible"
+          className="max-w-3xl"
+        >
+          <motion.span variants={item} className="eyebrow ">
             Construction • Real Estate • Technology
           </motion.span>
 
           <div className="mt-6 overflow-hidden">
             <motion.h1
               variants={item}
-              className="font-display text-4xl leading-[1.08] text-white sm:text-6xl lg:text-7xl"
+              className="font-display text-4xl leading-[1.08] text-primary sm:text-6xl lg:text-7xl"
             >
               Building Spaces.
               <br />
-              <span className="text-emerald-light">Engineering Progress.</span>
+              <span className="text-secondary">Engineering Progress.</span>
               <br />
               Creating <span className="text-secondary">Tomorrow.</span>
             </motion.h1>
           </div>
 
-          <motion.p variants={item} className="mt-7 max-w-xl text-base leading-relaxed text-slate-500 sm:text-lg">
-            Merkuri Smaragdus Construction &amp; Contracts LLP delivers integrated
-            construction, real estate, infrastructure and technology solutions
-            built around quality, innovation and long-term value.
+          <motion.p
+            variants={item}
+            className="mt-7 max-w-xl text-base leading-relaxed text-slate-500 sm:text-lg"
+          >
+            Merkuri Smaragdus Construction &amp; Contracts LLP delivers
+            integrated construction, real estate, infrastructure and technology
+            solutions built around quality, innovation and long-term value.
           </motion.p>
 
-          <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-4">
+          <motion.div
+            variants={item}
+            className="mt-10 flex flex-wrap items-center gap-4"
+          >
             <Button href="/services">Explore Our Services</Button>
-            <Button href="/contact" variant="light">Start a Project</Button>
+            <Button
+              href="/contact"
+              variant="light"
+              className="text-primary font-bold"
+            >
+              Start a Project
+            </Button>
           </motion.div>
 
           <motion.div
@@ -123,8 +150,10 @@ export function Hero() {
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2 text-white/60"
         >
-          <span className="text-[11px] uppercase tracking-[0.28em]">Scroll</span>
-          <ArrowDown className="h-4 w-4" />
+          <span className="text-[11px] uppercase text-primary font-bold tracking-[0.28em]">
+            Scroll
+          </span>
+          <ArrowDown className="h-4 w-4 text-primary" />
         </motion.div>
       </motion.div>
     </section>

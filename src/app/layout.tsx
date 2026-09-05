@@ -24,7 +24,11 @@ export const metadata: Metadata = {
     "Integrated construction, real estate, infrastructure and technology solutions built around quality, innovation and long-term value.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>

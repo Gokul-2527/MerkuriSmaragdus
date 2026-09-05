@@ -5,7 +5,7 @@ import { motion, useScroll } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { processSteps } from "@/config/projects";
 
-export function Process() {
+export function Process({ showHeading = true }: { showHeading?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -14,9 +14,9 @@ export function Process() {
 
   return (
     <section className="mx-auto max-w-content px-6 py-28 sm:px-10">
-      <SectionHeading eyebrow="Our Process" title="From Vision to Reality" />
+      {showHeading && <SectionHeading eyebrow="Our Process" title="From Vision to Reality" />}
 
-      <div ref={ref} className="relative mt-16">
+      <div ref={ref} className={showHeading ? "relative mt-16" : "relative"}>
         {/* Track */}
         <div className="absolute left-[15px] top-2 h-[calc(100%-16px)] w-px bg-border sm:left-1/2 sm:-translate-x-1/2" />
         {/* Progress fill */}
